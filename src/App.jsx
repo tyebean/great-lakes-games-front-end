@@ -8,6 +8,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
+import GameList from './pages/GameList/GameList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -26,6 +27,7 @@ const App = () => {
   return (
     <div className='App'>
       <NavBar user={user} handleLogout={handleLogout} />
+      
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -36,6 +38,7 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
+        <Route path='/games' element={<GameList />} />
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
