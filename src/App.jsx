@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
+import GameList from './pages/GameList/GameList'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
@@ -23,7 +24,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className='App'>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
@@ -43,8 +44,9 @@ const App = () => {
           path="/changePassword"
           element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
         />
+        <Route path='/' element={<GameList />}/>
       </Routes>
-    </>
+    </div>
   )
 }
 
