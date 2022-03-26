@@ -8,7 +8,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService' 
-import ReviewForm from './components/Reviews/ReviewForm'
+import ReviewForm from './components/Reviews/ReviewForm/ReviewForm'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
