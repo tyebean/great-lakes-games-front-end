@@ -1,67 +1,32 @@
 import { useState } from "react";
-import * as authService from '../../services/authService'
-
-
-// ref puppies auth front end
-
-
-// todo: make an 'updateMessage' prop in app.js
-// props.updateMessage 
-
-
-// const SubmitReview = (props) => {
-//   const [value, setValue] = useState({
-//     text: '',
-//   })
-
-//   const handleChange = e => {
-//     props.updateMessage('')
-//     setValue({
-//       ...reviewInput,
-//       [e.target.name]: e.target.value,
-//     })
-//   }
-
-//   // const handleSubmit = async e => {
-//   //   e.preventDefault()
-//   //   try {
-//   //     await authService.signup(reviewInput)
-//   //     props.handle
-//   //   }
-//   // } 
-//   // ! tf is this
-
-//   const { text } = reviewInput
-
-//   const isFormInvalid = () => {
-//     return !(text)
-//   }
-
-//   return ( 
-//     <div>
-
-//     </div>
-//   );
-// }
-
-// export default SubmitReview; 
+// import * as authService from '../../services/authService'
 
 const ReviewForm = () => {
   const [value, setValue] = useState({
     text: "",
   })
+  const [submitted, setSubmitted] = useState(false)
+  const [valid, setValid] = useState(false)
 
   const handleTxtChange = ( event ) => {
     setValue({...value, text: event.target.value})
   }
   /// '...value' is a spread operator
-
-
+  const handleSubmit = ( event ) => {
+    event.preventDefault();
+    if (value.text) {
+      setValid(true)
+    }
+    setSubmitted(true)
+  }
 
   return ( 
     <>
     <div className="form-container">
-      <form className="review-form">
+      <form className="review-form" onSubmit={handleSubmit}>
+        {submitted && valid ?  <div className="success-msg">Review Submit Successful 🎉</div> : null }
+      
+        {submitted && !value.text ? <span>Add a review first. It's not that hard.</span> : null }
         <input 
         onChange={handleTxtChange}
         value={value.text}
@@ -69,6 +34,7 @@ const ReviewForm = () => {
         className="form-field"
         placeholder="What are your thoughts?"
         name="text" />
+        <button className="review-form-btn" type="submit">Post</button> 
       </form>
     </div>
     
