@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import GameList from './pages/GameList/GameList'
+import GameDetails from './components/GameDetails/GameDetails'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
-import GameList from './pages/GameList/GameList'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -39,6 +39,7 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route path='/games' element={<GameList />} />
+        <Route path='/details' element={<GameDetails />} />
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}

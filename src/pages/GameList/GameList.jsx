@@ -23,7 +23,7 @@ const GameList = (props) => {
       <div className='game-container'>
 
       {games.map((gameDetails, index) =>(
-        <Link to='/gameDetails' state={{gameDetails}} key={index}>
+        <Link to='/details' state={{gameDetails}} key={index}>
           {gameDetails.name}
         </Link>
         ))}
@@ -31,5 +31,5 @@ const GameList = (props) => {
     </>
   );
 }
- 
+
 export default GameList;
