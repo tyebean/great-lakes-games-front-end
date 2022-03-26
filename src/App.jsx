@@ -8,7 +8,9 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import * as authService from './services/authService'
+import * as authService from './services/authService' 
+import ReviewForm from './components/Reviews/ReviewForm/ReviewForm'
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -39,7 +41,11 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route path='/games' element={<GameList />} />
+
+        <Route path='/reviews' element={<ReviewForm />} />
+
         <Route path='/details' element={<GameDetails />} />
+
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
