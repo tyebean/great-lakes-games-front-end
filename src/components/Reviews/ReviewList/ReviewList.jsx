@@ -1,5 +1,3 @@
-
-
 const ReviewList = () => {
   return ( 
     <div>
