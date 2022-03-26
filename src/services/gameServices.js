@@ -5,4 +5,12 @@ async function getGameList() {
   return await res.json();
 }
 
-export { getGameList };
+async function getGameDetails(id) {
+  console.log(id)
+  const res = await fetch(`${BASE_URL}/browse?id=${id}`)
+  return await res.json();
+}
+
+
+
+export { getGameList, getGameDetails };
