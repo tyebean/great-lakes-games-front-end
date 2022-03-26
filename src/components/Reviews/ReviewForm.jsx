@@ -50,8 +50,10 @@ const ReviewForm = () => {
     text: "",
   })
 
-
-
+  const handleTxtChange = ( event ) => {
+    setValue({...value, text: event.target.value})
+  }
+  /// '...value' is a spread operator
 
 
 
@@ -60,6 +62,7 @@ const ReviewForm = () => {
     <div className="form-container">
       <form className="review-form">
         <input 
+        onChange={handleTxtChange}
         value={value.text}
         type="text"
         className="form-field"
