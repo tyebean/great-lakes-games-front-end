@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 // * template component imports
 import Signup from './pages/Signup/Signup'
-import NavBar from './components/NavBar/NavBar'
+// import NavBar from './components/NavBar/NavBar'
+import NavBarTyes from './components/NavBarTyes/NavBarTyes'
 import Login from './pages/Login/Login'
 import Profiles from './pages/Profiles/Profiles'
 import Landing from './pages/Landing/Landing'
@@ -38,8 +39,9 @@ const App = () => {
 
   return (
     <div className='App'>
-      <NavBar user={user} handleLogout={handleLogout} />
-      <ReviewForm handleAddReview={handleAddReview}/>
+      {/* <NavBar user={user} handleLogout={handleLogout} /> */}
+      <NavBarTyes user={user} handleLogout={handleLogout} />
+      {/* <ReviewForm handleAddReview={handleAddReview}/> */}
 
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
