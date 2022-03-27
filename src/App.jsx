@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
-import GameList from './pages/GameList/GameList'
-import GameDetails from './components/GameDetails/GameDetails'
+// * template component imports
 import Signup from './pages/Signup/Signup'
+import NavBar from './components/NavBar/NavBar'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
+import Landing from './pages/Landing/Landing'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import * as authService from './services/authService' 
+// * our component imports
+import GameDetails from './components/GameDetails/GameDetails'
+import GameList from './pages/GameList/GameList'
 import ReviewForm from './components/Reviews/ReviewForm/ReviewForm'
+// * service imports
+import * as authService from './services/authService' 
 import * as reviewService from './services/reviewService'
 
 
@@ -36,7 +39,8 @@ const App = () => {
   return (
     <div className='App'>
       <NavBar user={user} handleLogout={handleLogout} />
-      
+      <ReviewForm handleAddReview={handleAddReview}/>
+
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -48,8 +52,6 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route path='/games' element={<GameList />} />
-
-        <Route path='/reviews' element={<ReviewForm handleAddReview={handleAddReview}/>} />
 
         <Route path='/details' element={<GameDetails />} />
 
