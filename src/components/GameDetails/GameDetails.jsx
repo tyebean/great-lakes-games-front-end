@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { getGameDetails } from '../../services/gameServices';
+import ReviewForm from '../Reviews/ReviewForm/ReviewForm';
 
 
 const GameDetails = () => {
@@ -25,7 +26,9 @@ console.log(gameDetails)
       <h3>Name: {gameDetails.name}</h3>
       <img src={gameDetails.background_image} alt={gameDetails.name}/>
       {/* <h3>Details: {gameDetails.details}</h3> */}
+      <ReviewForm />
       <Link to='/game' >Return</Link>
+
       </div>
     : <h2>loading</h2>}
     </div>
