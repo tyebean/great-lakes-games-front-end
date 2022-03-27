@@ -10,9 +10,16 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService' 
 import ReviewForm from './components/Reviews/ReviewForm/ReviewForm'
+import * as reviewService from './services/reviewService'
 
 
 const App = () => {
+  const [reviews, setReviews] = useState([])
+  const handleAddReview = async newFormData => {
+    const newReview = await reviewService.create(newFormData)
+    setReviews([...reviews, newReview])
+  }
+
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 
@@ -42,7 +49,7 @@ const App = () => {
         />
         <Route path='/games' element={<GameList />} />
 
-        <Route path='/reviews' element={<ReviewForm />} />
+        <Route path='/reviews' element={<ReviewForm handleAddReview={handleAddReview}/>} />
 
         <Route path='/details' element={<GameDetails />} />
 
