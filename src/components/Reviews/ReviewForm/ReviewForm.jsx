@@ -1,5 +1,8 @@
 import { useState } from "react";
+
+
 // import * as authService from '../../services/authService'
+//we want user to be logged in to do this
 
 const ReviewForm = () => {
   const [value, setValue] = useState({
@@ -12,6 +15,8 @@ const ReviewForm = () => {
     setValue({...value, text: event.target.value})
   }
   /// '...value' is a spread operator
+  // try [evt.target.text] ? if issues occurs
+
   const handleSubmit = ( event ) => {
     event.preventDefault();
     if (value.text) {
