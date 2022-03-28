@@ -1,15 +1,36 @@
+.body {
+  text-align: center;
+  color: #ffffff;
+}
+
+h1 {
+  font-family: 'seriousr2b', sans-serif;
+  font-size: 64px;
+  letter-spacing: 30px;
+  margin: 50px 0 40px 0;
+  color: #70ff70;
+}
+
 .container {
+  margin: 20px 50px 0 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
-/* .gamelink:hover {
-  border: 1px solid rgb(219, 212, 212);
-  box-shadow: 1px 1px 1px 1px gray;
-} */
+/* * the link surrounding whole game card */
+.gamelink { 
+  margin: 10px;
+}
 
-.gamelink {
-  width: 25%;
+/* * game title text */
+.game_title { 
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.game_title:hover {
+  color: #ffffff;
 }
