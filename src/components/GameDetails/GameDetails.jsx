@@ -36,10 +36,13 @@ console.log(gameDetails)
       <h3>Release Date: {gameDetails.released}</h3>
       <h3>Genres: {gameDetails.genres.map((genre, index) => (
         <div key={index} state={{genre}}>{genre.name}</div>
-      ))}
-      </h3>
-      <h3>Developer: {gameDetails.developer}</h3>
-      <h3>Platforms: {gameDetails.platform}</h3>
+      ))}</h3>
+      <h3>Developers: {gameDetails.developers.map((developer, index) => (
+        <div key={index} state={{developer}}>{developer.name}</div>
+      ))}</h3>
+      <h3>Platforms: {gameDetails.platforms.map((platform, index) => (
+        <div key={index} state={{platform}}>{platform.platform.name}</div>
+      ))}</h3>
       <h3>Metacritic Rating: {gameDetails.metacritic}</h3>
       <ReviewForm />
       <Link to='/game' >Return to Game Page</Link>
