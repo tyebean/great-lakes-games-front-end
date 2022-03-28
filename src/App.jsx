@@ -11,7 +11,6 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 // * our component imports
 import GameDetails from './components/GameDetails/GameDetails'
 import GameList from './pages/GameList/GameList'
-import ReviewForm from './components/Reviews/ReviewForm/ReviewForm'
 // * service imports
 import * as authService from './services/authService' 
 
