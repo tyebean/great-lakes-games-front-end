@@ -39,7 +39,6 @@ const App = () => {
 
   return (
     <div className='App'>
-      {/* <NavBar user={user} handleLogout={handleLogout} /> */}
       <NavBarTyes user={user} handleLogout={handleLogout} />
       {/* <ReviewForm handleAddReview={handleAddReview}/> */}
 

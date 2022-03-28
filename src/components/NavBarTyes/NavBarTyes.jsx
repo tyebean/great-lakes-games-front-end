@@ -4,7 +4,7 @@ const NavBarTyes = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbnavbar-dark bg-dark">
           <Link className="navbar-brand" to="/">
             <img 
             src="https://cdn.icon-icons.com/icons2/206/PNG/256/Retro_Block_-_Question_(2)_24708.png" 
@@ -13,7 +13,7 @@ const NavBarTyes = ({ user, handleLogout }) => {
             class="d-inline-block align-top" 
             alt="Your super cool profile icon">
             </img>
-            Hey, {user.name}
+            Welcome, {user.name}
         </Link>
         <button 
         className="navbar-toggler" 
@@ -43,7 +43,7 @@ const NavBarTyes = ({ user, handleLogout }) => {
         </div>
         </nav>
       :
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbnavbar-dark bg-dark">
           <button 
           className="navbar-toggler" 
           type="button" data-toggle="collapse"
