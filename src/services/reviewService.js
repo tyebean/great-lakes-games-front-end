@@ -14,6 +14,20 @@ function create(review){
   .then(res => res.json())
 }
 
+// ^^^^^^^ this is for when we wanna implent auth
+// function create(resourceData) {
+//   return fetch(BASE_URL, {
+//     method: 'POST',
+//     headers: {
+//       'Authorization': `Bearer ${tokenService.getToken()}`,
+//       'content-type': 'application/json'
+//     },
+//     body: JSON.stringify(resourceData)
+//   })
+//   .then(res => res.json())
+// }
+
+
 export {
   create,
 }
