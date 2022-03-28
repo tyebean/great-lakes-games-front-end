@@ -11,19 +11,11 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 // * our component imports
 import GameDetails from './components/GameDetails/GameDetails'
 import GameList from './pages/GameList/GameList'
-import ReviewForm from './components/Reviews/ReviewForm/ReviewForm'
 // * service imports
 import * as authService from './services/authService' 
-import * as reviewService from './services/reviewService'
 
 
-const App = () => {
-  const [reviews, setReviews] = useState([])
-  const handleAddReview = async newFormData => {
-    const newReview = await reviewService.create(newFormData)
-    setReviews([...reviews, newReview])
-  }
-
+const App = () => { 
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
 

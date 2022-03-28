@@ -6,13 +6,13 @@ const NavBarTyes = ({ user, handleLogout }) => {
       {user ?
         <nav className="navbar navbar-expand-lg navbnavbar-dark bg-dark">
           <Link className="navbar-brand" to="/">
-            {/* <img 
-            src="https://cdn.icon-icons.com/icons2/206/PNG/256/Retro_Block_-_Question_(2)_24708.png" 
+            <img 
+            src="/assets/mystery_block.png" 
             width="30" 
             height="30"
             className="d-inline-block align-top" 
-            alt="Your super cool profile icon">
-            </img> */}
+            alt="a question block icon from mario">
+            </img>
             Welcome, {user.name}
         </Link>
         <button 

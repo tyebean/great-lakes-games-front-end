@@ -4,9 +4,16 @@ import { useLocation } from 'react-router-dom';
 import { getGameDetails } from '../../services/gameServices';
 import ReviewForm from '../Reviews/ReviewForm/ReviewForm';
 
+import * as reviewService from '../../services/reviewService' 
+// import styles from './GameDetails.css'
 
-const GameDetails = () => {
-  
+const GameDetails = (props) => {
+  const [reviews, setReviews] = useState([])
+  const handleAddReview = async newFormData => {
+    const newReview = await reviewService.create(newFormData)
+    setReviews([...reviews, newReview])
+  }
+
   const [gameDetails, setGameDetails] = useState(null)
   let location = useLocation()
 
@@ -16,6 +23,7 @@ const GameDetails = () => {
     getGameDetails(location.state.gameDetails.id)
       .then(gameData => setGameDetails(gameData))
   }, [location.state.gameDetails.id])
+  
 console.log(gameDetails)
 
   return (
@@ -43,4 +51,4 @@ console.log(gameDetails)
 
 }
 
-export default GameDetails;
+export default GameDetails; 
