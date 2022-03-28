@@ -2,12 +2,8 @@ import { useState } from "react";
 // import * as authService from '../../services/authService'
 
 // todo: we want user to be logged in to do this. use above code.
-// todo: disable button if the form is invalid. look at CRUD PUPPIES frontend lecture. search for:
-// "const formElement = useRef()"
 
 const ReviewForm = (props) => {
-  // const formElement = useRef()
-  // console.log(formElement)
   const [value, setValue] = useState({
     text: "",
   })
@@ -17,8 +13,6 @@ const ReviewForm = (props) => {
   const handleTxtChange = ( event ) => {
     setValue({...value, text: event.target.value})
   }
-  /// '...value' is a spread operator
-  // try [evt.target.text] ? if issues occurs
 
   const handleSubmit = ( event ) => {
     event.preventDefault();
@@ -35,7 +29,6 @@ const ReviewForm = (props) => {
         <form
         className="review-form" 
         onSubmit={handleSubmit}
-        // ref={formElement}
         >
         {submitted && valid ?  <div className="success-msg">Review Submit Successful 🎉</div> : null }
         {submitted && !value.text ? <span>Add a review first. It's not that hard.</span> : null }
@@ -51,7 +44,6 @@ const ReviewForm = (props) => {
         <button 
         className="review-form-btn" 
         type="submit"
-        // disabled={!valid}
         >Post</button> 
         </form>
       </div>

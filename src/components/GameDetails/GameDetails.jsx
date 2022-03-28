@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { getGameDetails } from '../../services/gameServices';
 import ReviewForm from '../Reviews/ReviewForm/ReviewForm';
+import * as reviewService from '../../services/reviewService' 
 // import styles from './GameDetails.css'
 
-const GameDetails = () => {
+const GameDetails = (props) => {
+  const [reviews, setReviews] = useState([])
+  const handleAddReview = async newFormData => {
+    const newReview = await reviewService.create(newFormData)
+    setReviews([...reviews, newReview])
+  }
+
   const [gameDetails, setGameDetails] = useState(null)
   let location = useLocation()
   // console.log(location.state.gameDetails)
@@ -13,7 +20,7 @@ const GameDetails = () => {
   useEffect(() => {
     getGameDetails(location.state.gameDetails.id)
       .then(gameData => setGameDetails(gameData))
-  }, [])
+  }, [location.state.gameDetails.id])
   // console.log(gameDetails)
 
   return (
@@ -33,7 +40,7 @@ const GameDetails = () => {
       </div>
       <div
         className='reviews-and-comments' >
-        <ReviewForm />
+        <ReviewForm handleAddReview={handleAddReview} />
       </div>
     </>
   );
