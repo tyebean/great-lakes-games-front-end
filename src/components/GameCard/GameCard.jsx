@@ -1,7 +1,7 @@
 import styles from './GameCard.module.css'
 
 const GameCard = (props) => {
-  return ( 
+  return (
 
     <div className={styles.gamecard}>
       <div className={styles.gamepic}>
