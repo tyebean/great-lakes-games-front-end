@@ -3,6 +3,7 @@
   color: #ffffff;
 }
 
+/* todo: move this to app.css, tweak it to make it look good across all pages */
 h1 {
   font-family: 'seriousr2b', sans-serif;
   font-size: 64px;
