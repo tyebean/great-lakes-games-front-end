@@ -42,11 +42,10 @@ const ReviewForm = props => {
             type="text"
             className="form-field"
             placeholder="What are your thoughts?"
-            name="text"
-          />
-          <button className="review-form-btn" type="submit">
-            Post
-          </button>
+            name="text"/>
+          <button 
+          className="review-form-btn" 
+          type="submit">Post</button>
         </form>
       </div>
     </>

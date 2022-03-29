@@ -1,7 +1,6 @@
 import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews`
 
-
 function create(review){
   return fetch(BASE_URL, {
     method: 'POST',
@@ -14,7 +13,16 @@ function create(review){
   .then(res => res.json())
 }
 
-// ^^^^^^^ this is for when we wanna implent auth
+async function getAllReviews() {
+  const res = await fetch(BASE_URL, {
+    headers: {
+      Authorization: `Bearer ${tokenService.getToken()}` 
+    },
+  })
+  return await res.json()
+}
+
+// below is for when we wanna implent auth
 // function create(resourceData) {
 //   return fetch(BASE_URL, {
 //     method: 'POST',
@@ -29,5 +37,6 @@ function create(review){
 
 
 export {
+  getAllReviews,
   create,
 }
