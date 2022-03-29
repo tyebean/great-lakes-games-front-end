@@ -14,6 +14,7 @@ function create(review){
 }
 
 async function getAllReviews() {
+  console.log("get all reviews function");
   const res = await fetch(BASE_URL, {
     headers: {
       Authorization: `Bearer ${tokenService.getToken()}` 

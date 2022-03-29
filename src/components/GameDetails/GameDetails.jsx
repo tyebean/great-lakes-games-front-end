@@ -8,7 +8,7 @@ import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../../components/Reviews/ReviewForm/ReviewForm";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
 
-const GameDetails = props => {
+const GameDetails = props => { 
   const [reviews, setReviews] = useState([]);
   const [gameDetails, setGameDetails] = useState(null);
   let location = useLocation();
@@ -25,6 +25,8 @@ const GameDetails = props => {
         setReviews(reviews))
     }, [])
     
+    console.log("reviews are", reviews);
+
     const handleAddReview = async newFormData => {
       const newReview = await reviewService.create(newFormData);
       setReviews([...reviews, newReview]);
