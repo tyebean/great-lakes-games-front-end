@@ -25,8 +25,6 @@ const ReviewForm = props => {
     }
     setSubmitted(true);
   };
-  console.log(props.gameDetails.id);
-
   return (
     <>
       <div className="form-container">
