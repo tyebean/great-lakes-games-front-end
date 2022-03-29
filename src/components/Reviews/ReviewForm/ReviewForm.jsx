@@ -6,6 +6,7 @@ import { useState } from "react";
 const ReviewForm = props => {
   const [value, setValue] = useState({
     text: "",
+    date: new Date(),
     image: props.gameDetails.background_image,
     apiId: props.gameDetails.id,
   });
