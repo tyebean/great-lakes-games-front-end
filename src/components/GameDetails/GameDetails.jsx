@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { getGameDetails } from '../../services/gameServices';
-import ReviewForm from '../Reviews/ReviewForm/ReviewForm';
-import * as reviewService from '../../services/reviewService' 
 // import styles from './GameDetails.css'
+
+// Review Imports ---------------------------------------
+import ReviewForm from '../Reviews/ReviewForm/ReviewForm';
+import ReviewList from '../Reviews/ReviewList/ReviewList';
+import * as reviewService from '../../services/reviewService' 
 
 const GameDetails = (props) => {
   const [reviews, setReviews] = useState([])
@@ -41,6 +44,7 @@ const GameDetails = (props) => {
       <div
         className='reviews-and-comments' >
         <ReviewForm handleAddReview={handleAddReview} />
+        <ReviewList />
       </div>
     </>
   );

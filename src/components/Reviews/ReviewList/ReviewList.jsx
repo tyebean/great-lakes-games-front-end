@@ -1,7 +1,7 @@
 const ReviewList = () => {
   return ( 
     <div>
-      <h1> hey! the reviews of a specific game go here! </h1>
+      <p> Hey! the reviews of a specific game go here! </p>
       
     </div>
   );
