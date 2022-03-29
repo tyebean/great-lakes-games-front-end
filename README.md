@@ -1,68 +1,54 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# Great Lakes Games
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+[Great Lakes Games launch]()
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+***
 
-Use this to go build things! 🚀
+## Background
 
-## To Use This Template
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-```
+***
 
-Once you are in the project directory:
+## Great Lakes Games Instructions with Visuals
 
-```bash
-rm -rf .git
-```
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+### 1. Welcome Screen: Press the Google login button to sign into the application.
+![Login Screen](/public/README-images/football-city-one.png "Press the Google login button to sign into the application")
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
 
-Re-initialize a git repository:
+***
+## Technologies Used
 
-```bash
-git init
-```
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
-Use the GitHub CLI to create a new project repository on GitHub:
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-```bash
-gh repo create <name-of-your-app-here>-front-end
-```
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-Run `npm i` to fetch the template's dependencies:
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-```bash
-npm i
-```
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
-touch a `.env` file:
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
-```bash
-touch .env
-```
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
-Fill it with the following:
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 
 
-```
-REACT_APP_BACKEND_SERVER_URL=http://localhost:3001
-```
+***
 
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors.
+## App Development Preparation
 
-Delete this README.md, then make an initial commit:
+#### Trello Planning & ERD:
 
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
-```
+[Trello Planning](https://trello.com/b/LNa8QWuu/great-lake-gaming)
 
-You're done!
+[Wireframing](https://whimsical.com/city-slicker-football-app-wireframe-unit-2-YQ5V5Mbpmyggp1z3RDRjug)
+
+![ERD!](/wire-images/wire-framing-unit-two.png "ERD")
+
+***
+
+## Icebox Items
+
