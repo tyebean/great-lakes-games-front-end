@@ -1,36 +1,35 @@
-import { useState } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { useState } from "react";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 // * template component imports
-import Signup from './pages/Signup/Signup'
+import Signup from "./pages/Signup/Signup";
 // import NavBar from './components/NavBar/NavBar'
-import NavBarTyes from './components/NavBarTyes/NavBarTyes'
-import Login from './pages/Login/Login'
-import Profiles from './pages/Profiles/Profiles'
-import Landing from './pages/Landing/Landing'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
+import NavBarTyes from "./components/NavBarTyes/NavBarTyes";
+import Login from "./pages/Login/Login";
+import Profiles from "./pages/Profiles/Profiles";
+import Landing from "./pages/Landing/Landing";
+import ChangePassword from "./pages/ChangePassword/ChangePassword";
 // * our component imports
-import GameDetails from './components/GameDetails/GameDetails'
-import GameList from './pages/GameList/GameList'
+import GameDetails from "./components/GameDetails/GameDetails";
+import GameList from "./pages/GameList/GameList";
 // * service imports
-import * as authService from './services/authService' 
+import * as authService from "./services/authService";
 
-
-const App = () => { 
-  const [user, setUser] = useState(authService.getUser())
-  const navigate = useNavigate()
+const App = () => {
+  const [user, setUser] = useState(authService.getUser());
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    authService.logout()
-    setUser(null)
-    navigate('/')
-  }
+    authService.logout();
+    setUser(null);
+    navigate("/");
+  };
 
   const handleSignupOrLogin = () => {
-    setUser(authService.getUser())
-  }
+    setUser(authService.getUser());
+  };
 
   return (
-    <div className='App'>
+    <div className="App">
       <NavBarTyes user={user} handleLogout={handleLogout} />
       {/* <ReviewForm handleAddReview={handleAddReview}/> */}
 
@@ -44,9 +43,9 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        <Route path='/games' element={<GameList />} />
+        <Route path="/games" element={<GameList />} />
 
-        <Route path='/details' element={<GameDetails />} />
+        <Route path="/details" element={<GameDetails />} />
 
         <Route
           path="/profiles"
@@ -54,12 +53,18 @@ const App = () => {
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={
+            user ? (
+              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
-        <Route path='/' element={<GameList />}/>
+        <Route path="/" element={<GameList />} />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
