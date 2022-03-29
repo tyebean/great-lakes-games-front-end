@@ -33,6 +33,7 @@ console.log(gameDetails)
       <div className='game-card'>
       <h3>{gameDetails.name}</h3>
       <img src={gameDetails.background_image} alt={gameDetails.name}/>
+      <h3>Game Description: {gameDetails.description_raw}</h3>
       <h3>Release Date: {gameDetails.released}</h3>
       <h3>Genres: {gameDetails.genres.map((genre, index) => (
         <div key={index} state={{genre}}>{genre.name}</div>
