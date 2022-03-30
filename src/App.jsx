@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+// * Nav and Footer
+import NavBarTyes from "./components/NavBarTyes/NavBarTyes";
+import Footer from "./components/Footer/Footer";
 // * template component imports
 import Signup from "./pages/Signup/Signup";
-// import NavBar from './components/NavBar/NavBar'
-import NavBarTyes from "./components/NavBarTyes/NavBarTyes";
 import Login from "./pages/Login/Login";
 import Profiles from "./pages/Profiles/Profiles";
 import Landing from "./pages/Landing/Landing";
@@ -31,10 +32,10 @@ const App = () => {
   return (
     <div className="App">
       <NavBarTyes user={user} handleLogout={handleLogout} />
-      {/* <ReviewForm handleAddReview={handleAddReview}/> */}
-
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route 
+        path="/" 
+        element={<Landing user={user} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -43,10 +44,12 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        <Route path="/games" element={<GameList />} />
-
-        <Route path="/details" element={<GameDetails />} />
-
+        <Route 
+        path="/games" 
+        element={<GameList />} />
+        <Route 
+        path="/details" 
+        element={<GameDetails />} />
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
@@ -61,8 +64,11 @@ const App = () => {
             )
           }
         />
-        <Route path="/" element={<GameList />} />
+        <Route 
+        path="/" 
+        element={<GameList />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
