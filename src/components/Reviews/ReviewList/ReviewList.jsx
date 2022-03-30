@@ -1,10 +1,15 @@
+import Comments from "../../Comments/Comments";
+
 const ReviewList = props => {
   console.log(props.reviews);
   return (
     <div>
       Hello am i working?
       {props.reviews.map((review, index) => (
-        <div key={index}>{review.text}</div>
+        <div key={index}>
+          {review.text}
+          <Comments />
+        </div>
       ))}
     </div>
   );
