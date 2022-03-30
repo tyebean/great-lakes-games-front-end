@@ -21,11 +21,11 @@ const GameDetails = props => {
   }, [location.state.gameDetails.id]);
 
   useEffect(() => {
-    gameServices.getGame().then(game => {
+    gameServices.getGame(location.state.gameDetails.id).then(game => {
       console.log(game);
-      setgame(game);
+      // setgame(game);
     });
-  }, []);
+  }, [location.state.gameDetails.id]);
 
   const handleAddReview = async newFormData => {
     const newReview = await reviewService.create(newFormData);
