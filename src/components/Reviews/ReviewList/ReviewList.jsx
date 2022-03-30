@@ -1,14 +1,25 @@
-const ReviewList = props => {
-  console.log(props.reviews);
+
+import styles from '../ReviewList/ReviewList.module.css'
+
+function ReviewList({ reviews, handleDeleteReview }) {
+  console.log(reviews);
   return (
     <div>
-      Hello am i working?
-      {props.reviews.map((review, index) => (
-        <div key={index}>{review.text}</div>
+      {reviews.map((review, index) => (
+      <div key={index} className={styles.reviewCard}>
+        <div key={review._id}> {review.text} </div>
+
+        <button
+        onClick={() => handleDeleteReview(review._id)}>
+        Delete</button>
+        <button>Update</button>
+
+      </div>
       ))}
     </div>
-  );
-};
+  )
+}
+
 
 export default ReviewList;
 

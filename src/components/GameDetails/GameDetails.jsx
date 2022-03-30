@@ -35,7 +35,13 @@ const GameDetails = props => {
     const newReview = await reviewService.create(newFormData);
     setReviews([...reviews, newReview]);
   };
-  console.log(reviews);
+  
+  const handleDeleteReview = id => {
+    reviewService.deleteOne(id)
+    setReviews(reviews.filter(review => review._id !== id))
+  }
+
+
   return (
     <div className="icon-container">
       {gameDetails ? (
@@ -73,7 +79,8 @@ const GameDetails = props => {
             handleAddReview={handleAddReview}
             gameDetails={gameDetails}
           />
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={reviews} handleDeleteReview={handleDeleteReview} />
+          
           <Link to="/games">Return to Game Page</Link>
         </div>
       ) : (
