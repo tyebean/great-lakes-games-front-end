@@ -13,15 +13,11 @@ function create(review){
   .then(res => res.json())
 }
 
-// async function getAllReviews() {
-//   console.log("get all reviews function");
-//   const res = await fetch(BASE_URL, {
-//     headers: {
-//       Authorization: `Bearer ${tokenService.getToken()}` 
-//     },
-//   })
-//   return await res.json()
-// }
+function deleteOne(id) {
+  console.log("deleteOne review Service function");
+  return fetch(`${BASE_URL}/${id}`, {method: 'DELETE'}) 
+  .then(res => res.json)
+}
 
 // below is for when we wanna implent auth
 // function create(resourceData) {
@@ -38,6 +34,6 @@ function create(review){
 
 
 export {
-  // getAllReviews,
+  deleteOne,
   create,
 }
