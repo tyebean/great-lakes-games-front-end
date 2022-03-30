@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 // * Nav and Footer
 import NavBarTyes from "./components/NavBar/NavBarTyes";
-import NavBar from "./components/NavBar/NavBar";
+// import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 // * template component imports
 import Signup from "./pages/Signup/Signup";
@@ -33,7 +33,7 @@ const App = () => {
   return (
     <div className="App">
       <NavBarTyes user={user} handleLogout={handleLogout} />
-      <NavBar user={user} handleLogout={handleLogout} />
+      {/* <NavBar user={user} handleLogout={handleLogout} /> */}
       <Routes>
         <Route 
         path="/" 
