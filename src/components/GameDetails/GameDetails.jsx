@@ -9,7 +9,7 @@ import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../../components/Reviews/ReviewForm/ReviewForm";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
 
-const GameDetails = props => { 
+const GameDetails = props => {
   const [reviews, setReviews] = useState([]);
   const [gameDetails, setGameDetails] = useState(null);
   let location = useLocation();
@@ -17,19 +17,20 @@ const GameDetails = props => {
   useEffect(() => {
     getGameDetails(location.state.gameDetails.id).then(gameData =>
       setGameDetails(gameData)
-      );
-    }, [location.state.gameDetails.id]);
+    );
+  }, [location.state.gameDetails.id]);
 
-    useEffect(() => {
-      gameServices.getGame()
-      .then(reviews => 
-        setReviews(reviews))
-    }, [])
-    
-    const handleAddReview = async newFormData => {
-      const newReview = await reviewService.create(newFormData);
-      setReviews([...reviews, newReview]);
-    };
+  useEffect(() => {
+    gameServices.getGame().then(game => {
+      console.log(game);
+      setgame(game);
+    });
+  }, []);
+
+  const handleAddReview = async newFormData => {
+    const newReview = await reviewService.create(newFormData);
+    setReviews([...reviews, newReview]);
+  };
 
   return (
     <div className="icon-container">
@@ -66,8 +67,9 @@ const GameDetails = props => {
           <h3>Metacritic Rating: {gameDetails.metacritic}</h3>
           <ReviewForm
             handleAddReview={handleAddReview}
-            gameDetails={gameDetails} />
-            <ReviewList reviews={reviews} /> 
+            gameDetails={gameDetails}
+          />
+          <ReviewList reviews={reviews} />
           <Link to="/games">Return to Game Page</Link>
         </div>
       ) : (

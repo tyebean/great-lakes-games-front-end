@@ -1,6 +1,5 @@
-import * as tokenService from './tokenService'
+import * as tokenService from "./tokenService";
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/games`;
-
 
 async function getGameList() {
   const res = await fetch(`${BASE_URL}/browse?dates=1969-09-01,2007-09-30`);
@@ -12,14 +11,14 @@ async function getGameDetails(id) {
   return await res.json();
 }
 
-async function getGame() {
+async function getGame(id) {
   console.log("find one game function");
-  const res = await fetch(BASE_URL, {
+  const res = await fetch(`${BASE_URL}/${id}`, {
     headers: {
-      Authorization: `Bearer ${tokenService.getToken()}` 
+      Authorization: `Bearer ${tokenService.getToken()}`,
     },
-  })
-  return await res.json()
+  });
+  return await res.json();
 }
 
 export { getGameList, getGameDetails, getGame };
