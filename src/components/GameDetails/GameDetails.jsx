@@ -11,7 +11,10 @@ import ReviewList from "../Reviews/ReviewList/ReviewList";
 
 const GameDetails = props => {
   const [reviews, setReviews] = useState([]);
+  // GameDetails stores data from rawg
   const [gameDetails, setGameDetails] = useState(null);
+  // Make a new state for our game in our DB (GameCopy)
+  const [gameCopy, setGameCopy] = useState();
   let location = useLocation();
 
   useEffect(() => {
@@ -22,8 +25,9 @@ const GameDetails = props => {
 
   useEffect(() => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
-      console.log(game);
-      // setgame(game);
+      setReviews(game.reviews);
+      setGameCopy(game);
+      console.log(game.reviews);
     });
   }, [location.state.gameDetails.id]);
 
@@ -31,7 +35,7 @@ const GameDetails = props => {
     const newReview = await reviewService.create(newFormData);
     setReviews([...reviews, newReview]);
   };
-
+  console.log(reviews);
   return (
     <div className="icon-container">
       {gameDetails ? (
