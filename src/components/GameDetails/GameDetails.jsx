@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { getGameDetails } from "../../services/gameServices";
 // import styles from './GameDetails.css'
 // review imports ------------
+import * as gameServices from "../../services/gameServices";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../../components/Reviews/ReviewForm/ReviewForm";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
@@ -20,13 +21,11 @@ const GameDetails = props => {
     }, [location.state.gameDetails.id]);
 
     useEffect(() => {
-      reviewService.getAllReviews()
+      gameServices.getGame()
       .then(reviews => 
         setReviews(reviews))
     }, [])
     
-    console.log("reviews are", reviews);
-
     const handleAddReview = async newFormData => {
       const newReview = await reviewService.create(newFormData);
       setReviews([...reviews, newReview]);
