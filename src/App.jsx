@@ -34,7 +34,7 @@ const App = () => {
       {/* <ReviewForm handleAddReview={handleAddReview}/> */}
 
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/games" element={<Landing user={user} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
