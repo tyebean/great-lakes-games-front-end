@@ -6,11 +6,8 @@ function ReviewList({ reviews, handleDeleteReview }) {
   return (
     <div>
       {reviews.map((review, index) => (
-      <div 
-      className={styles.reviewCard}>
-        <div 
-        key={index}
-        >{review.text}</div>
+      <div key={index} className={styles.reviewCard}>
+        <div key={review._id}> {review.text} </div>
 
         <button
         onClick={() => handleDeleteReview(review._id)}>
