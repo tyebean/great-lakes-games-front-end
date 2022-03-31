@@ -15,15 +15,15 @@ function create(review) {
 
 function update(id, data) {
   console.log(id, data)
+  const formData = {text : data}
   return fetch(`${BASE_URL}/${id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
-    body: JSON.stringify(data)
-  })
-    .then(res => res.json())
+    body: JSON.stringify(formData)
+  }).then(res => res.json())
 }
 
 function deleteOne(id) {

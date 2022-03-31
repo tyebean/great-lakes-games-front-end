@@ -41,9 +41,11 @@ const GameDetails = props => {
     setReviews(reviews.filter(review => review._id !== id))
   }
 
-  const handleEditReview = (id, data) => {
+  const handleEditReview = async (id, data) => {
     console.log(id, data)
-    reviewService.update(id, data)
+    const updatedReview = await reviewService.update(id, data)
+    console.log(updatedReview)
+    setReviews(reviews.map(r => r._id === updatedReview._id ? updatedReview : r))
     // setReviews({...reviews, [id.review.text]: id.review.value})
   }
 
