@@ -4,12 +4,15 @@ import { useState } from "react";
 // todo: we want user to be logged in to do this. use above code.
 
 const ReviewForm = props => {
+
   const [value, setValue] = useState({
     text: "",
     date: new Date(),
     image: props.gameDetails.background_image,
     apiId: props.gameDetails.id,
+    username: props.user.name,
   });
+
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
 

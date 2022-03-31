@@ -9,6 +9,8 @@ const Profiles = () => {
     .then(profiles => setProfiles(profiles))
   }, [])
 
+  console.log(profiles);
+
   return (
     <>
       <h1>Hello. This is a list of all the profiles.</h1>
