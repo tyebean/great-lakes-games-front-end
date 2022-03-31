@@ -43,6 +43,7 @@ const GameDetails = props => {
 
   const handleEditReview = (id, data) => {
     console.log(id, data)
+    reviewService.update(id, data)
     // setReviews({...reviews, [id.review.text]: id.review.value})
   }
 

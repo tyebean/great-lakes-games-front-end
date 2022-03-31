@@ -14,11 +14,12 @@ function create(review){
 }
 
 function update(id, data) {
+  console.log(id, data)
   return fetch(`${BASE_URL}/${id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
-      'Authentication': `Bearer ${tokenService.getToken()}`
+      'Authorization': `Bearer ${tokenService.getToken()}`
     },
     body: JSON.stringify(data)
   })

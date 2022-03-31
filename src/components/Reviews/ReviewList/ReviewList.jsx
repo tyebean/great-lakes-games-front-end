@@ -16,6 +16,7 @@ function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
         key={index}
         review={review}
         handleEditReview={handleEditReview}
+        handleDeleteReview={handleDeleteReview}
         />
 
 

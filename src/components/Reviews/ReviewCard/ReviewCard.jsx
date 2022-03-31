@@ -2,19 +2,31 @@ import { useState } from "react";
 
 const ReviewCard = (props) => {
   const [toggle, setToggle] = useState(true)
+  const [form, setForm] = useState(props.review.text)
   console.log('this is from my review card', props)
-  return(
+  function handleEdit(){
+    setToggle(!toggle)
+    props.handleEditReview(props.review._id, form)
+    setForm(props.review.text)
+  }
+  console.log(form)
+  return (
     <div className="review-card">
-      <section> 
+      <section>
         <button onClick={() => setToggle(!toggle)}>Edit</button>
+        <button onClick={() => props.handleDeleteReview(props.review._id)}>Delete</button>
       </section>
-      {toggle ? 
-      <section>    
-        {props.review.text}
+      {toggle ?
+        <section>
+          {props.review.text}
 
-      </section>
-      :
-      <section>Edit</section>
+        </section>
+        :
+        <section>
+          <h4>Edit Review</h4>
+          <input name="text" type="text" value={form} onChange={(e)=> setForm(e.target.value)}/>
+          <button onClick={handleEdit}>Submit</button>
+        </section>
       }
 
     </div>
