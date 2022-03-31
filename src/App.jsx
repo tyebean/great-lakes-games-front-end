@@ -17,6 +17,7 @@ import * as authService from "./services/authService";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
+  console.log(user);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -33,9 +34,9 @@ const App = () => {
     <div className="App">
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route 
-        path="/" 
-        element={<Landing user={user} />} />
+
+        <Route path="/games" element={<Landing user={user} />} />
+
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -44,12 +45,12 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        <Route 
-        path="/games" 
-        element={<GameList />} />
-        <Route 
-        path="/details" 
-        element={<GameDetails />} />
+
+        <Route path="/games" element={<GameList />} />
+
+        <Route path="/details" element={<GameDetails user={user} />} />
+
+
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}

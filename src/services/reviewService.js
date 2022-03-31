@@ -3,6 +3,7 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews`
 
 
 function create(review){
+  console.log(tokenService.getToken());
   return fetch(BASE_URL, {
     method: 'POST',
     headers: {
@@ -14,6 +15,13 @@ function create(review){
   .then(res => res.json())
 }
 
+function deleteOne(id) {
+  console.log("deleteOne review Service function");
+  return fetch(`${BASE_URL}/${id}`, {method: 'DELETE'}) 
+  .then(res => res.json)
+}
+
 export {
+  deleteOne,
   create,
 }
