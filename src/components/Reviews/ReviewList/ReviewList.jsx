@@ -11,6 +11,7 @@ const ReviewList = props => {
           <Comments
             handleAddComment={props.handleAddComment}
             reviewId={review._id}
+            allComments={review.comments}
           />
         </div>
       ))}

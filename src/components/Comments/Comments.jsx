@@ -6,6 +6,7 @@ const Comments = props => {
     // author:
   });
   console.log(props);
+  console.log(props.allReviews);
 
   const handleTxtChange = event => {
     setValue({ ...value, text: event.target.value });
@@ -48,6 +49,9 @@ const Comments = props => {
           </button>
         </form>
       </div>
+      {props?.allComments.map((review, index) => (
+        <div key={index}>{review.text}</div>
+      ))}
     </div>
   );
 };
