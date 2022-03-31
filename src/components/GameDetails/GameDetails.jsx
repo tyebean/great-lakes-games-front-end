@@ -23,7 +23,7 @@ const GameDetails = props => {
     );
   }, [location.state.gameDetails.id]);
 
-    console.log(gameCopy);
+    // console.log(gameCopy);
 
   useEffect(() => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
