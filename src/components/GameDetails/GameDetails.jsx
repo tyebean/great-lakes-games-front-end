@@ -38,8 +38,13 @@ const GameDetails = props => {
   };
 
   const handleAddComment = async (newFormComment, id) => {
-    const newComment = await reviewService.createComment(newFormComment, id);
-    setComments([...comments, newComment]);
+    const updatedReview = await reviewService.createComment(newFormComment, id);
+    setReviews(
+      reviews.map(review =>
+        review._id === updatedReview._id ? updatedReview : review
+      )
+    );
+    // setComments([...comments, updated]);
   };
 
   return (
