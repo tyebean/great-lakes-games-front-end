@@ -12,12 +12,14 @@ const ReviewCard = (props) => {
   console.log(form)
   return (
     <div className="review-card">
-      <section>
+      <section className="ui">
+        {/* <h5>{props.review.author?.name}</h5> */}
+        <h5>Dan Richardson</h5>
         <button onClick={() => setToggle(!toggle)}>Edit</button>
         <button onClick={() => props.handleDeleteReview(props.review._id)}>Delete</button>
       </section>
       {toggle ?
-        <section>
+        <section className="review-text">
           {props.review.text}
 
         </section>
