@@ -8,7 +8,7 @@ function ReviewList({ reviews, handleDeleteReview }) {
       {reviews.map((review, index) => (
       <div key={index} className={styles.reviewCard}>
         <div key={review._id}> {review.text} </div>
-
+          <p>posted by: {review.author?.name}</p> 
         <button
         onClick={() => handleDeleteReview(review._id)}>
         Delete</button>

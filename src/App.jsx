@@ -27,6 +27,7 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser());
+    console.log("handle sign up for log in");
   };
 
   return (

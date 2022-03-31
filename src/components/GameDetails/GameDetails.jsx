@@ -23,6 +23,8 @@ const GameDetails = props => {
     );
   }, [location.state.gameDetails.id]);
 
+    console.log(gameCopy);
+
   useEffect(() => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
       setReviews(game.reviews);
@@ -39,12 +41,6 @@ const GameDetails = props => {
   const handleDeleteReview = id => {
     reviewService.deleteOne(id)
     setReviews(reviews.filter(review => review._id !== id))
-  }
-
-  if (!props.user.name) {
-    return (
-      <div>Loading...</div>
-    )
   }
 
 

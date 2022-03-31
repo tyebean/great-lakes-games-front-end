@@ -2,6 +2,7 @@ import { Buffer } from 'buffer'
 
 function setToken(token) {
   localStorage.setItem('token', token)
+  console.log("SET TOKEN", token);
 }
 
 function getToken() {
@@ -21,6 +22,7 @@ function getToken() {
 
 function getUserFromToken() {
   const token = getToken()
+  console.log("TOKEN", token);
   return token
     ? JSON.parse(Buffer.from(token.split('.')[1], 'base64')).user
     : null
@@ -28,6 +30,7 @@ function getUserFromToken() {
 
 function removeToken() {
   localStorage.removeItem('token')
+  console.log("remove token");
 }
 
 export { setToken, getToken, getUserFromToken, removeToken }
