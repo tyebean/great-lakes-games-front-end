@@ -13,14 +13,14 @@ function create(review){
   .then(res => res.json())
 }
 
-function update(id) {
+function update(id, data) {
   return fetch(`${BASE_URL}/${id}`, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json',
       'Authentication': `Bearer ${tokenService.getToken()}`
     },
-    body: JSON.stringify(id)
+    body: JSON.stringify(data)
   })
   .then(res => res.json())
 }

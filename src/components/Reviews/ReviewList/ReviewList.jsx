@@ -1,6 +1,6 @@
 import EditReview from '../EditReview/EditReview';
 import ReviewCard from '../ReviewCard/ReviewCard';
-import styles from '../ReviewList/ReviewList.module.css'
+import './ReviewList.css'
 
 function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
   console.log(reviews);
@@ -12,8 +12,10 @@ function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
         // <div>{review.text}
         // {review.date}
         // </div>
-        <ReviewCard 
+        <ReviewCard
+        key={index}
         review={review}
+        handleEditReview={handleEditReview}
         />
 
 

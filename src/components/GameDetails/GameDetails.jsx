@@ -8,7 +8,6 @@ import * as gameServices from "../../services/gameServices";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../../components/Reviews/ReviewForm/ReviewForm";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
-import EditReview from "../Reviews/EditReview/EditReview";
 
 const GameDetails = props => {
   const [reviews, setReviews] = useState([]);
@@ -42,8 +41,8 @@ const GameDetails = props => {
     setReviews(reviews.filter(review => review._id !== id))
   }
 
-  const handleEditReview = id => {
-    console.log(id)
+  const handleEditReview = (id, data) => {
+    console.log(id, data)
     // setReviews({...reviews, [id.review.text]: id.review.value})
   }
 
