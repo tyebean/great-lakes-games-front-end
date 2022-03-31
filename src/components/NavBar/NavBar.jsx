@@ -11,11 +11,24 @@ const NavBar = ({ user, handleLogout }) => {
         <>
         <Navbar bg="dark" variant="dark">
             <Container>
-              <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+              <Navbar.Brand href="#home">
+            <img 
+            src="/assets/mystery_block.png" 
+            width="30" 
+            height="30"
+            className="d-inline-block align-top" 
+            alt="a question block icon from mario">
+            </img>
+                Welcome, {user.name}
+                </Navbar.Brand>
               <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav.Link href="/">Games</Nav.Link>
+                <Nav.Link href="/profiles">Profiles</Nav.Link>
+                <Nav.Link href="/changePassword">Change Password</Nav.Link>
+                <Nav.Link
+                href=""
+                onClick={handleLogout}
+                >LOG OUT</Nav.Link>
               </Nav>
             </Container>
           </Navbar>
@@ -24,11 +37,11 @@ const NavBar = ({ user, handleLogout }) => {
         <>
           <Navbar bg="dark" variant="dark">
             <Container>
-              <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+              
               <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav.Link href="/">Games</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/signup">Signup</Nav.Link>
               </Nav>
             </Container>
           </Navbar>

@@ -38,11 +38,11 @@ const NavBarTyes = ({ user, handleLogout }) => {
           <li className="nav-item">
             <Link className="nav-link" to="/changePassword" onClick={() => setExpanded(expanded ? false : "expanded")}>Change Password</Link>
           </li>
-          {/* <li className="nav-item">
+          <li className="nav-item">
             <Link 
             className="nav-link"
             to="" onClick={handleLogout} >LOG OUT</Link>
-          </li> */}
+          </li>
         </ul>
         </div>
         </nav>
