@@ -8,7 +8,10 @@ const ReviewList = props => {
       {props.reviews.map((review, index) => (
         <div key={index}>
           {review.text}
-          <Comments />
+          <Comments
+            handleAddComment={props.handleAddComment}
+            reviewId={review._id}
+          />
         </div>
       ))}
     </div>

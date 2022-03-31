@@ -3,7 +3,9 @@ import { useState } from "react";
 const Comments = props => {
   const [value, setValue] = useState({
     text: "",
+    // author:
   });
+  console.log(props);
 
   const handleTxtChange = event => {
     setValue({ ...value, text: event.target.value });
@@ -11,43 +13,37 @@ const Comments = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.handleAddReview(value);
+    props.handleAddComment(value, props.reviewId);
   };
 
   return (
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
+    <div className="dropdown">
+      <span
+        className=" dropdown-toggle"
         type="button"
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         Reply
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      </span>
+      <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <form
-          class="px-4 py-3"
+          className="px-4 py-3 review-form"
           aria-labelledby="dropdownMenuButton1"
-          className="review-form"
           onSubmit={handleSubmit}
         >
-          <div class="mb-3">
+          <div className="mb-3">
             <input
-              class="form-control"
+              className="form-control form-field"
               onChange={handleTxtChange}
               value={value.text}
               type="text"
-              className="form-field"
               placeholder="What are your thoughts?"
               name="text"
             />
           </div>
-          <button
-            class="btn btn-primary"
-            className="review-form-btn"
-            type="submit"
-          >
+          <button className="btn btn-primary review-form-btn" type="POST">
             Post
           </button>
         </form>

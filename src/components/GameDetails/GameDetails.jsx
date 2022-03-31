@@ -15,6 +15,8 @@ const GameDetails = props => {
   const [gameDetails, setGameDetails] = useState(null);
   // Make a new state for our game in our DB (GameCopy)
   const [gameCopy, setGameCopy] = useState();
+
+  const [comments, setComments] = useState([]);
   let location = useLocation();
 
   useEffect(() => {
@@ -27,7 +29,6 @@ const GameDetails = props => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
       setReviews(game.reviews);
       setGameCopy(game);
-      console.log(game.reviews);
     });
   }, [location.state.gameDetails.id]);
 
@@ -35,7 +36,12 @@ const GameDetails = props => {
     const newReview = await reviewService.create(newFormData);
     setReviews([...reviews, newReview]);
   };
-  console.log(reviews);
+
+  const handleAddComment = async (newFormComment, id) => {
+    const newComment = await reviewService.createComment(newFormComment, id);
+    setComments([...comments, newComment]);
+  };
+
   return (
     <div className="icon-container">
       {gameDetails ? (
@@ -73,7 +79,7 @@ const GameDetails = props => {
             handleAddReview={handleAddReview}
             gameDetails={gameDetails}
           />
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={reviews} handleAddComment={handleAddComment} />
           <Link to="/games">Return to Game Page</Link>
         </div>
       ) : (

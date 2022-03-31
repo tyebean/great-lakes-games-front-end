@@ -1,23 +1,33 @@
-import * as tokenService from './tokenService'
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews`
+import * as tokenService from "./tokenService";
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews`;
 
-function create(review){
+function create(review) {
   return fetch(BASE_URL, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'content-type': 'application/json',
-      'Authentication': `Bearer ${tokenService.getToken()}`
+      "content-type": "application/json",
+      Authentication: `Bearer ${tokenService.getToken()}`,
     },
-    body: JSON.stringify(review)
-  })
-  .then(res => res.json())
+    body: JSON.stringify(review),
+  }).then(res => res.json());
+}
+
+function createComment(comment, id) {
+  return fetch(`${BASE_URL}/${id}/comments`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      Authentication: `Bearer ${tokenService.getToken()}`,
+    },
+    body: JSON.stringify(comment),
+  }).then(res => res.json());
 }
 
 // async function getAllReviews() {
 //   console.log("get all reviews function");
 //   const res = await fetch(BASE_URL, {
 //     headers: {
-//       Authorization: `Bearer ${tokenService.getToken()}` 
+//       Authorization: `Bearer ${tokenService.getToken()}`
 //     },
 //   })
 //   return await res.json()
@@ -36,8 +46,8 @@ function create(review){
 //   .then(res => res.json())
 // }
 
-
 export {
   // getAllReviews,
   create,
-}
+  createComment,
+};
