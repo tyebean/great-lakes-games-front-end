@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 // * template component imports
 import Signup from "./pages/Signup/Signup";
-// import NavBar from './components/NavBar/NavBar'
+
 import NavBarTyes from "./components/NavBarTyes/NavBarTyes";
 import Login from "./pages/Login/Login";
 import Profiles from "./pages/Profiles/Profiles";
