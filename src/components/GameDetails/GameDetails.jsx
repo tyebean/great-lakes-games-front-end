@@ -27,7 +27,7 @@ const GameDetails = props => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
       setReviews(game.reviews);
       setGameCopy(game);
-      console.log(game.reviews);
+      // console.log(game.reviews);
     });
   }, [location.state.gameDetails.id]);
 
@@ -39,6 +39,12 @@ const GameDetails = props => {
   const handleDeleteReview = id => {
     reviewService.deleteOne(id)
     setReviews(reviews.filter(review => review._id !== id))
+  }
+
+  if (!props.user.name) {
+    return (
+      <div>Loading...</div>
+    )
   }
 
 
@@ -76,6 +82,7 @@ const GameDetails = props => {
           </h3>
           <h3>Metacritic Rating: {gameDetails.metacritic}</h3>
           <ReviewForm
+            user={props.user}
             handleAddReview={handleAddReview}
             gameDetails={gameDetails}
           />
