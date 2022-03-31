@@ -11,7 +11,7 @@ const NavBar = ({ user, handleLogout }) => {
         <>
         <Navbar bg="dark" variant="dark">
             <Container>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand href="/">
             <img 
             src="/assets/mystery_block.png" 
             width="30" 
@@ -37,7 +37,6 @@ const NavBar = ({ user, handleLogout }) => {
         <>
           <Navbar bg="dark" variant="dark">
             <Container>
-              
               <Nav className="me-auto">
                 <Nav.Link href="/">Games</Nav.Link>
                 <Nav.Link href="/login">Login</Nav.Link>
