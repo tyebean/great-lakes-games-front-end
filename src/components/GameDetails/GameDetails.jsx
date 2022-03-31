@@ -29,57 +29,55 @@ const GameDetails = props => {
   return (
     <div className="all-content">
       {gameDetails ? (
-        <div className={styles.detailsBody}> 
-          <h1>{gameDetails.name}</h1> 
-          
-            {/* <div className={styles.flex}> */}
+        <div className={styles.detailsBody}>
+          <h1>{gameDetails.name}</h1>
+
+
           <div className={styles.imgAndDesc}>
-          <img 
-          className={styles.detailsImg} 
-          src={gameDetails.background_image} 
-          alt={gameDetails.name} />
-          <h2 className={styles.desc}>Game Description</h2>
-          <p className={styles.desc}>{gameDetails.description_raw}</p>
+            <img
+              className={styles.detailsImg}
+              src={gameDetails.background_image}
+              alt={gameDetails.name} />
+            <h2 className={styles.desc}>Game Description</h2>
+            <p className={styles.desc}>{gameDetails.description_raw}</p>
           </div>
 
-          
+
           <div className={styles.detailsContainer}>
-          <h3>Release Date</h3> 
-          <p>{gameDetails.released}</p> 
-          <h3>Genre</h3>
-          <p> {" "}
-            {gameDetails.genres.map((genre, index) => (
-              <div key={index} state={{ genre }}>
-                {genre.name}
-              </div>
-            ))}</p>
-            <h3>Developers</h3> 
-          <p>{" "}
-            {gameDetails.developers.map((developer, index) => (
-              <div key={index} state={{ developer }}>
-                {developer.name}
-              </div>
-            ))}
-          </p>
-          <h3>Platforms</h3>
-          <p>{" "}
-            {gameDetails.platforms.map((platform, index) => (
-              <div key={index} state={{ platform }}>
-                {platform.platform.name}
-              </div>
-            ))}
-          </p>
-          <h3>Metacritic Rating</h3>
-          <p>{gameDetails.metacritic}</p>
+            <h3>Release Date</h3>
+            <p>{gameDetails.released}</p>
+            <h3>Genre</h3>
+            <p> {" "}
+              {gameDetails.genres.map((genre, index) => (
+                <div key={index} state={{ genre }}>
+                  {genre.name}
+                </div>
+              ))}</p>
+            <h3>Developers</h3>
+            <p>{" "}
+              {gameDetails.developers.map((developer, index) => (
+                <div key={index} state={{ developer }}>
+                  {developer.name}
+                </div>
+              ))}
+            </p>
+            <h3>Platforms</h3>
+            <p>{" "}
+              {gameDetails.platforms.map((platform, index) => (
+                <div key={index} state={{ platform }}>
+                  {platform.platform.name}
+                </div>
+              ))}
+            </p>
+            <h3>Metacritic Rating</h3>
+            <p>{gameDetails.metacritic}</p>
           </div>
-          {/* </div> */}
-
           <div className={styles.reviewContainer}>
             <section className="reviews">
-          <ReviewForm
-            handleAddReview={handleAddReview}
-            gameDetails={gameDetails}
-          />
+              <ReviewForm
+                handleAddReview={handleAddReview}
+                gameDetails={gameDetails}
+              />
             </section>
           </div>
           <Link to="/games">All Games</Link>
