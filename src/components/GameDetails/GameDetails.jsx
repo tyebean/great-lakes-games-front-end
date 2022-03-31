@@ -52,10 +52,12 @@ const GameDetails = props => {
     setReviews(reviews.filter(review => review._id !== id))
   }
 
-  if (!props.user.name) {
-    return (
-      <div>Loading...</div>
-    )
+  const handleEditReview = async (id, data) => {
+    console.log(id, data)
+    const updatedReview = await reviewService.update(id, data)
+    console.log(updatedReview)
+    setReviews(reviews.map(r => r._id === updatedReview._id ? updatedReview : r))
+    // setReviews({...reviews, [id.review.text]: id.review.value})
   }
 
 
@@ -63,58 +65,51 @@ const GameDetails = props => {
   return (
     <div className="all-content">
       {gameDetails ? (
-        <div className={styles.detailsBody}>
-          <h1>{gameDetails.name}</h1>
+        <div className="game-card">
+          <h3>{gameDetails.name}</h3>
+          <img src={gameDetails.background_image} alt={gameDetails.name} />
+          <h3>Game Description: {gameDetails.description_raw}</h3>
+          <h3>Release Date: {gameDetails.released}</h3>
+          <h3>
+            Genres:{" "}
+            {gameDetails.genres.map((genre, index) => (
+              <div key={index} state={{ genre }}>
+                {genre.name}
+              </div>
+            ))}
+          </h3>
+          <h3>
+            Developers:{" "}
+            {gameDetails.developers.map((developer, index) => (
+              <div key={index} state={{ developer }}>
+                {developer.name}
+              </div>
+            ))}
+          </h3>
+          <h3>
+            Platforms:{" "}
+            {gameDetails.platforms.map((platform, index) => (
+              <div key={index} state={{ platform }}>
+                {platform.platform.name}
+              </div>
+            ))}
+          </h3>
+          <h3>Metacritic Rating: {gameDetails.metacritic}</h3>
+          <ReviewForm
+            user={props.user}
+            handleAddReview={handleAddReview}
+            gameDetails={gameDetails}
+          />
+          <ReviewList reviews={reviews} handleDeleteReview={handleDeleteReview}
+          handleEditReview={handleEditReview}
+          />
 
+          {/* <EditReview
+            handleEditReview={handleEditReview}
+            reviews={reviews}
+            /> */}
 
-          <div className={styles.imgAndDesc}>
-            <img
-              className={styles.detailsImg}
-              src={gameDetails.background_image}
-              alt={gameDetails.name} />
-            <h2 className={styles.desc}>Game Description</h2>
-            <p className={styles.desc}>{gameDetails.description_raw}</p>
-          </div>
-
-
-          <div className={styles.detailsContainer}>
-            <h3>Release Date</h3>
-            <p>{gameDetails.released}</p>
-            <h3>Genre</h3>
-            <p> {" "}
-              {gameDetails.genres.map((genre, index) => (
-                <div key={index} state={{ genre }}>
-                  {genre.name}
-                </div>
-              ))}</p>
-            <h3>Developers</h3>
-            <p>{" "}
-              {gameDetails.developers.map((developer, index) => (
-                <div key={index} state={{ developer }}>
-                  {developer.name}
-                </div>
-              ))}
-            </p>
-            <h3>Platforms</h3>
-            <p>{" "}
-              {gameDetails.platforms.map((platform, index) => (
-                <div key={index} state={{ platform }}>
-                  {platform.platform.name}
-                </div>
-              ))}
-            </p>
-            <h3>Metacritic Rating</h3>
-            <p>{gameDetails.metacritic}</p>
-          </div>
-          <div className={styles.reviewContainer}>
-            <section className="reviews">
-              <ReviewForm
-                handleAddReview={handleAddReview}
-                gameDetails={gameDetails}
-              />
-            </section>
-          </div>
-          <Link to="/games">All Games</Link>
+          <Link to="/games">Return to Game Page</Link>
         </div>
       ) : (
         <p>loading</p>
