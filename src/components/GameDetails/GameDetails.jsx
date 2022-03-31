@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { getGameDetails } from "../../services/gameServices";
-// import styles from './GameDetails.css'
-// review imports ------------
+import styles from '../GameDetails/GameDetails.module.css'
 import * as gameServices from "../../services/gameServices";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../../components/Reviews/ReviewForm/ReviewForm";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
+
 
 const GameDetails = props => {
   const [reviews, setReviews] = useState([]);
@@ -15,6 +15,8 @@ const GameDetails = props => {
   const [gameDetails, setGameDetails] = useState(null);
   // Make a new state for our game in our DB (GameCopy)
   const [gameCopy, setGameCopy] = useState();
+
+  const [comments, setComments] = useState([]);
   let location = useLocation();
 
   useEffect(() => {
@@ -29,7 +31,6 @@ const GameDetails = props => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
       setReviews(game.reviews);
       setGameCopy(game);
-      // console.log(game.reviews);
     });
   }, [location.state.gameDetails.id]);
 
@@ -37,15 +38,32 @@ const GameDetails = props => {
     const newReview = await reviewService.create(newFormData);
     setReviews([...reviews, newReview]);
   };
+
+  const handleAddComment = async (newFormComment, id) => {
+    const updatedReview = await reviewService.createComment(newFormComment, id);
+    setReviews(
+      reviews.map(review =>
+        review._id === updatedReview._id ? updatedReview : review
+      )
+    );
+    // setComments([...comments, updated]);
+  };
   
   const handleDeleteReview = id => {
     reviewService.deleteOne(id)
     setReviews(reviews.filter(review => review._id !== id))
   }
 
+  const handleEditReview = async (id, data) => {
+    console.log(id, data)
+    const updatedReview = await reviewService.update(id, data)
+    console.log(updatedReview)
+    setReviews(reviews.map(r => r._id === updatedReview._id ? updatedReview : r))
+    // setReviews({...reviews, [id.review.text]: id.review.value})
+  }
 
   return (
-    <div className="icon-container">
+    <div className="all-content">
       {gameDetails ? (
         <div className="game-card">
           <h3>{gameDetails.name}</h3>
@@ -82,12 +100,19 @@ const GameDetails = props => {
             handleAddReview={handleAddReview}
             gameDetails={gameDetails}
           />
-          <ReviewList reviews={reviews} handleDeleteReview={handleDeleteReview} />
-          
+          <ReviewList reviews={reviews} handleDeleteReview={handleDeleteReview}
+          handleEditReview={handleEditReview}
+          />
+
+          {/* <EditReview
+            handleEditReview={handleEditReview}
+            reviews={reviews}
+            /> */}
+
           <Link to="/games">Return to Game Page</Link>
         </div>
       ) : (
-        <h2>loading</h2>
+        <p>loading</p>
       )}
     </div>
   );

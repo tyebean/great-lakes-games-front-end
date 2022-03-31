@@ -1,6 +1,6 @@
 # Great Lakes Games
 
-[Great Lakes Games launch]()
+[Great Lakes Games launch](https://great-lakes-games.herokuapp.com/)
 
 ***
 
