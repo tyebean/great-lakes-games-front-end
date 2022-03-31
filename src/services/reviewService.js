@@ -5,8 +5,8 @@ function create(review) {
   return fetch(BASE_URL, {
     method: "POST",
     headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`
     },
     body: JSON.stringify(review),
   }).then(res => res.json());
@@ -43,6 +43,9 @@ async function getComments(id) {
     },
   });
   return await res.json();
+}
+
+
   function deleteOne(id) {
     console.log("deleteOne review Service function");
     return fetch(`${BASE_URL}/${id}`, {
@@ -52,6 +55,6 @@ async function getComments(id) {
       },
     }).then(res => res.json);
   }
-}
 
-export { deleteOne, create, createComment, getComments, update };
+
+export { create, createComment, getComments, update, deleteOne };

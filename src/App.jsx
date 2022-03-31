@@ -17,7 +17,7 @@ import * as authService from "./services/authService";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -28,6 +28,7 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser());
+    console.log("handle sign up for log in");
   };
 
   return (

@@ -25,6 +25,8 @@ const GameDetails = props => {
     );
   }, [location.state.gameDetails.id]);
 
+    // console.log(gameCopy);
+
   useEffect(() => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
       setReviews(game.reviews);
@@ -59,8 +61,6 @@ const GameDetails = props => {
     setReviews(reviews.map(r => r._id === updatedReview._id ? updatedReview : r))
     // setReviews({...reviews, [id.review.text]: id.review.value})
   }
-
-
 
   return (
     <div className="all-content">
