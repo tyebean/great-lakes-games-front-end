@@ -1,23 +1,20 @@
-import Comments from "../../Comments/Comments";
+import styles from "../ReviewList/ReviewList.module.css";
 
-const ReviewList = props => {
-  console.log(props.reviews);
+function ReviewList({ reviews, handleDeleteReview }) {
+  console.log(reviews);
   return (
     <div>
-      Hello am i working?
-      {props.reviews.map((review, index) => (
-        <div key={index}>
-          {review.text}
-          <Comments
-            handleAddComment={props.handleAddComment}
-            reviewId={review._id}
-            allComments={review.comments}
-          />
+      {reviews.map((review, index) => (
+        <div key={index} className={styles.reviewCard}>
+          <div key={review._id}> {review.text} </div>
+
+          <button onClick={() => handleDeleteReview(review._id)}>Delete</button>
+          <button>Update</button>
         </div>
       ))}
     </div>
   );
-};
+}
 
 export default ReviewList;
 

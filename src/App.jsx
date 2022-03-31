@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+// * Nav and Footer
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
 // * template component imports
 import Signup from "./pages/Signup/Signup";
-// import NavBar from './components/NavBar/NavBar'
-import NavBarTyes from "./components/NavBarTyes/NavBarTyes";
 import Login from "./pages/Login/Login";
 import Profiles from "./pages/Profiles/Profiles";
 import Landing from "./pages/Landing/Landing";
@@ -16,6 +17,7 @@ import * as authService from "./services/authService";
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
+  console.log(user);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -30,11 +32,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBarTyes user={user} handleLogout={handleLogout} />
-      {/* <ReviewForm handleAddReview={handleAddReview}/> */}
-
+      <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+
+        <Route path="/games" element={<Landing user={user} />} />
+
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -43,9 +45,11 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
+
         <Route path="/games" element={<GameList />} />
 
-        <Route path="/details" element={<GameDetails />} />
+        <Route path="/details" element={<GameDetails user={user} />} />
+
 
         <Route
           path="/profiles"
@@ -61,8 +65,11 @@ const App = () => {
             )
           }
         />
-        <Route path="/" element={<GameList />} />
+        <Route 
+        path="/" 
+        element={<GameList />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

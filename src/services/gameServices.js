@@ -12,6 +12,7 @@ async function getGameDetails(id) {
 }
 
 async function getGame(id) {
+  // console.log("find one game function");
   const res = await fetch(`${BASE_URL}/${id}`, {
     headers: {
       Authorization: `Bearer ${tokenService.getToken()}`,

@@ -6,6 +6,7 @@ function setToken(token) {
 
 function getToken() {
   let token = localStorage.getItem('token')
+  console.log("TOKEN", token);
   if (token) {
     const payload = JSON.parse(Buffer.from(token.split('.')[1], 'base64'))
     if (payload.exp < Date.now() / 1000) {
