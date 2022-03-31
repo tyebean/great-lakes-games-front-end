@@ -1,11 +1,22 @@
 .detailsBody {
   margin: 20px 50px 0 50px;
   color: white;
+  text-align: center;
 }
 
 .imgAndDesc {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.detailsContainer {
+  display: inline-block;
+  flex-direction: column;
+  position: relative;
+  margin-left: 20px;
+  top: -400px;
 }
 
 .desc {
@@ -20,7 +31,7 @@
   margin: 10px;
 }
 
-/* .flex {
+.reviewContainer {
   display: flex;
-  flex-direction: row;
-}  */
+  flex-direction: column;
+} 

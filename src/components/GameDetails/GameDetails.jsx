@@ -41,6 +41,9 @@ const GameDetails = props => {
           <h2 className={styles.desc}>Game Description</h2>
           <p className={styles.desc}>{gameDetails.description_raw}</p>
           </div>
+
+          
+          <div className={styles.detailsContainer}>
           <h3>Release Date</h3> 
           <p>{gameDetails.released}</p> 
           <h3>Genre</h3>
@@ -68,9 +71,10 @@ const GameDetails = props => {
           </p>
           <h3>Metacritic Rating</h3>
           <p>{gameDetails.metacritic}</p>
+          </div>
           {/* </div> */}
 
-          <div className="review-container">
+          <div className={styles.reviewContainer}>
             <section className="reviews">
           <ReviewForm
             handleAddReview={handleAddReview}
