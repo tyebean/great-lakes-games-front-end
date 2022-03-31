@@ -13,11 +13,24 @@ function create(review){
   .then(res => res.json())
 }
 
+function update(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+      'Authentication': `Bearer ${tokenService.getToken()}`
+    },
+    body: JSON.stringify(id)
+  })
+  .then(res => res.json())
+}
+
 function deleteOne(id) {
   console.log("deleteOne review Service function");
   return fetch(`${BASE_URL}/${id}`, {method: 'DELETE'}) 
   .then(res => res.json)
 }
+
 
 // below is for when we wanna implent auth
 // function create(resourceData) {
@@ -36,4 +49,5 @@ function deleteOne(id) {
 export {
   deleteOne,
   create,
+  update
 }

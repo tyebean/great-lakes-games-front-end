@@ -8,6 +8,7 @@ import * as gameServices from "../../services/gameServices";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../../components/Reviews/ReviewForm/ReviewForm";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
+import EditReview from "../Reviews/EditReview/EditReview";
 
 const GameDetails = props => {
   const [reviews, setReviews] = useState([]);
@@ -39,6 +40,11 @@ const GameDetails = props => {
   const handleDeleteReview = id => {
     reviewService.deleteOne(id)
     setReviews(reviews.filter(review => review._id !== id))
+  }
+
+  const handleEditReview = id => {
+    console.log(id)
+    // setReviews({...reviews, [id.review.text]: id.review.value})
   }
 
 
@@ -79,8 +85,15 @@ const GameDetails = props => {
             handleAddReview={handleAddReview}
             gameDetails={gameDetails}
           />
-          <ReviewList reviews={reviews} handleDeleteReview={handleDeleteReview} />
-          
+          <ReviewList reviews={reviews} handleDeleteReview={handleDeleteReview}
+          handleEditReview={handleEditReview}
+          />
+
+          {/* <EditReview
+            handleEditReview={handleEditReview}
+            reviews={reviews}
+            /> */}
+
           <Link to="/games">Return to Game Page</Link>
         </div>
       ) : (
