@@ -8,7 +8,9 @@ async function signup(user) {
       headers: new Headers({ "Content-Type": "application/json" }),
       body: JSON.stringify(user),
     });
+    console.log("responce", res);
     const json = await res.json();
+    console.log("token signup", json.token);
     if (json.token) {
       tokenService.setToken(json.token);
     }

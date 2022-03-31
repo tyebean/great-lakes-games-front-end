@@ -1,7 +1,9 @@
 import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/reviews`
 
+
 function create(review){
+  console.log(tokenService.getToken());
   return fetch(BASE_URL, {
     method: 'POST',
     headers: {
@@ -18,20 +20,6 @@ function deleteOne(id) {
   return fetch(`${BASE_URL}/${id}`, {method: 'DELETE'}) 
   .then(res => res.json)
 }
-
-// below is for when we wanna implent auth
-// function create(resourceData) {
-//   return fetch(BASE_URL, {
-//     method: 'POST',
-//     headers: {
-//       'Authorization': `Bearer ${tokenService.getToken()}`,
-//       'content-type': 'application/json'
-//     },
-//     body: JSON.stringify(resourceData)
-//   })
-//   .then(res => res.json())
-// }
-
 
 export {
   deleteOne,
