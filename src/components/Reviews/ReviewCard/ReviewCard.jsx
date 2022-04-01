@@ -17,7 +17,7 @@ const ReviewCard = props => {
         <>
           <section className="ui">
             <h5>{props.review.author?.name}</h5>
-            {props.user.profile === props.review.author._id && (
+            {props.user?.profile === props.review?.author._id && (
               <>
                 <button onClick={() => setToggle(!toggle)}>Edit</button>
                 <button
