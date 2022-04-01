@@ -10,7 +10,6 @@ const ReviewForm = props => {
     date: new Date(),
     image: props.gameDetails.background_image,
     apiId: props.gameDetails.id,
-    username: props.user.name,
   });
 
   const [submitted, setSubmitted] = useState(false);

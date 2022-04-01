@@ -1,6 +1,5 @@
-import EditReview from '../EditReview/EditReview';
-import ReviewCard from '../ReviewCard/ReviewCard';
-import './ReviewList.css'
+import ReviewCard from "../ReviewCard/ReviewCard";
+import "./ReviewList.css";
 
 function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
   console.log(reviews);
@@ -8,18 +7,17 @@ function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
     <div>
       {reviews.map((review, index) => (
         <ReviewCard
-        key={index}
-        review={review}
-        handleEditReview={handleEditReview}
-        handleDeleteReview={handleDeleteReview}
+          key={index}
+          review={review}
+          handleEditReview={handleEditReview}
+          handleDeleteReview={handleDeleteReview}
         />
-
-
-        
       ))}
     </div>
-  )
+  );
 }
 
 
+
 export default ReviewList;
+

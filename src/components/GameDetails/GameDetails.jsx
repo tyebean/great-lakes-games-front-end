@@ -15,6 +15,8 @@ const GameDetails = props => {
   const [gameDetails, setGameDetails] = useState(null);
   // Make a new state for our game in our DB (GameCopy)
   const [gameCopy, setGameCopy] = useState();
+
+  const [comments, setComments] = useState([]);
   let location = useLocation();
 
   useEffect(() => {
@@ -23,17 +25,28 @@ const GameDetails = props => {
     );
   }, [location.state.gameDetails.id]);
 
+    // console.log(gameCopy);
+
   useEffect(() => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
       setReviews(game.reviews);
       setGameCopy(game);
-      // console.log(game.reviews);
     });
   }, [location.state.gameDetails.id]);
 
   const handleAddReview = async newFormData => {
     const newReview = await reviewService.create(newFormData);
     setReviews([...reviews, newReview]);
+  };
+
+  const handleAddComment = async (newFormComment, id) => {
+    const updatedReview = await reviewService.createComment(newFormComment, id);
+    setReviews(
+      reviews.map(review =>
+        review._id === updatedReview._id ? updatedReview : review
+      )
+    );
+    // setComments([...comments, updated]);
   };
   
   const handleDeleteReview = id => {
@@ -48,8 +61,6 @@ const GameDetails = props => {
     setReviews(reviews.map(r => r._id === updatedReview._id ? updatedReview : r))
     // setReviews({...reviews, [id.review.text]: id.review.value})
   }
-
-
 
   return (
     <div className="all-content">
