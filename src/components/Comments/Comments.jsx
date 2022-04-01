@@ -5,8 +5,8 @@ const Comments = props => {
     text: "",
     // author:
   });
-  console.log(props);
-  console.log(props.allReviews);
+  console.log("coomments", props);
+  console.log(props.allComments);
 
   const handleTxtChange = event => {
     setValue({ ...value, text: event.target.value });

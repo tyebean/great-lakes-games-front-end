@@ -1,7 +1,12 @@
 import ReviewCard from "../ReviewCard/ReviewCard";
 import "./ReviewList.css";
 
-function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
+function ReviewList({
+  reviews,
+  handleDeleteReview,
+  handleEditReview,
+  handleAddComment,
+}) {
   console.log(reviews);
   return (
     <div>
@@ -11,6 +16,7 @@ function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
           review={review}
           handleEditReview={handleEditReview}
           handleDeleteReview={handleDeleteReview}
+          handleAddComment={handleAddComment}
         />
       ))}
     </div>
@@ -18,4 +24,3 @@ function ReviewList({ reviews, handleDeleteReview, handleEditReview }) {
 }
 
 export default ReviewList;
-

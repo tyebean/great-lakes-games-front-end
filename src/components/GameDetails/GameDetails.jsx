@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { getGameDetails } from "../../services/gameServices";
-import styles from '../GameDetails/GameDetails.module.css'
+import styles from "../GameDetails/GameDetails.module.css";
 import * as gameServices from "../../services/gameServices";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../../components/Reviews/ReviewForm/ReviewForm";
 import ReviewList from "../Reviews/ReviewList/ReviewList";
-
 
 const GameDetails = props => {
   const [reviews, setReviews] = useState([]);
@@ -25,7 +24,7 @@ const GameDetails = props => {
     );
   }, [location.state.gameDetails.id]);
 
-    // console.log(gameCopy);
+  // console.log(gameCopy);
 
   useEffect(() => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
@@ -46,21 +45,22 @@ const GameDetails = props => {
         review._id === updatedReview._id ? updatedReview : review
       )
     );
-    // setComments([...comments, updated]);
   };
-  
+
   const handleDeleteReview = id => {
-    reviewService.deleteOne(id)
-    setReviews(reviews.filter(review => review._id !== id))
-  }
+    reviewService.deleteOne(id);
+    setReviews(reviews.filter(review => review._id !== id));
+  };
 
   const handleEditReview = async (id, data) => {
-    console.log(id, data)
-    const updatedReview = await reviewService.update(id, data)
-    console.log(updatedReview)
-    setReviews(reviews.map(r => r._id === updatedReview._id ? updatedReview : r))
+    console.log(id, data);
+    const updatedReview = await reviewService.update(id, data);
+    console.log(updatedReview);
+    setReviews(
+      reviews.map(r => (r._id === updatedReview._id ? updatedReview : r))
+    );
     // setReviews({...reviews, [id.review.text]: id.review.value})
-  }
+  };
 
   return (
     <div className="all-content">
@@ -100,8 +100,11 @@ const GameDetails = props => {
             handleAddReview={handleAddReview}
             gameDetails={gameDetails}
           />
-          <ReviewList reviews={reviews} handleDeleteReview={handleDeleteReview}
-          handleEditReview={handleEditReview}
+          <ReviewList
+            reviews={reviews}
+            handleDeleteReview={handleDeleteReview}
+            handleEditReview={handleEditReview}
+            handleAddComment={handleAddComment}
           />
 
           {/* <EditReview
