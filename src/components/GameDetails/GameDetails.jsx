@@ -56,6 +56,11 @@ const GameDetails = props => {
     console.log(id, data);
     const updatedReview = await reviewService.update(id, data);
     console.log(updatedReview);
+    const author = {
+      _id: props.user.profile,
+      name: props.user.name,
+    };
+    updatedReview.author = author;
     setReviews(
       reviews.map(r => (r._id === updatedReview._id ? updatedReview : r))
     );
@@ -105,6 +110,7 @@ const GameDetails = props => {
             handleDeleteReview={handleDeleteReview}
             handleEditReview={handleEditReview}
             handleAddComment={handleAddComment}
+            user={props.user}
           />
           <Link to="/games">Return to Game Page</Link>
         </div>
