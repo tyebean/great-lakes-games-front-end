@@ -16,8 +16,7 @@ const ReviewCard = props => {
       <div className="review-card">
         <>
           <section className="ui">
-            {/* <h5>{props.review.author?.name}</h5> */}
-            <h5>Dan Richardson</h5>
+            <h5>{props.review.author?.name}</h5>
             <button onClick={() => setToggle(!toggle)}>Edit</button>
             <button onClick={() => props.handleDeleteReview(props.review._id)}>
               Delete

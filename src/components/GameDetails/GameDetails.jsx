@@ -106,12 +106,6 @@ const GameDetails = props => {
             handleEditReview={handleEditReview}
             handleAddComment={handleAddComment}
           />
-
-          {/* <EditReview
-            handleEditReview={handleEditReview}
-            reviews={reviews}
-            /> */}
-
           <Link to="/games">Return to Game Page</Link>
         </div>
       ) : (
