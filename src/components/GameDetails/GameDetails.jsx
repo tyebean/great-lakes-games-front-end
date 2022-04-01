@@ -142,7 +142,7 @@ const GameDetails = props => {
           />
           </div>
 
-          <Link to="/games">Return to Game Page</Link>
+          <Link to="/">Return to Game Page</Link>
           
         </div>
       ) : (
