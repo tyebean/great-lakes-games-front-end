@@ -9,6 +9,7 @@ import Login from "./pages/Login/Login";
 import Profiles from "./pages/Profiles/Profiles";
 import Landing from "./pages/Landing/Landing";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
+import './App.css'
 // * our component imports
 import GameDetails from "./components/GameDetails/GameDetails";
 import GameList from "./pages/GameList/GameList";

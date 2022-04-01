@@ -1,3 +1,4 @@
+import styles from '../Comments/Comments.module.css'
 import { useState } from "react";
 
 const Comments = props => {
@@ -50,8 +51,11 @@ const Comments = props => {
         </form>
       </div>
       {props?.allComments.map((review, index) => (
-        <div key={index}>{review.text}</div>
+        <div className={styles.commentCard}>
+          <div key={index}>{review.text}</div>
+        </div>
       ))}
+      
     </div>
   );
 };
