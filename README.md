@@ -10,7 +10,8 @@ When the development team came together for the first time we brainstormed about
 
 Sincerely,
 
-The Great Lakes Gamers
+##### The Great Lakes Gamers
+##### Tye, Joseph, Dan
 
 
 ***
@@ -23,18 +24,24 @@ The Great Lakes Gamers
 ![Signup Screen](/public/assets/signup.png "Signup for Great Lakes Games")
 
 ### 2. Game's List Page: After logging in the user will see a list of game cards with the game title and game image available.
-![Game List Screen](/public/assets/game-list.png "Game List Screen")
+![Game List Page](/public/assets/game-list.png "Game List Screen")
 
 ### 3. The user will then click on a game of their choice. The Game Details page will open with a game title, game description, game image, release date, development team and platforms that the game operates on listed.
+![Game Details Page](/public/assets/game-details-page.png "Game Details Page")
 
 ### 4. The user can enter reviews about the game under the game details. This allows an interactive UI for the user to share what they thought about their gaming experience to other gamers. Users can also edit and delete their reviews. Only the user signed into the profile that creates the review can edit and delete the specific review.
+![Game Reviews Box](/public/assets/add-your-own-review.png "Game Reviews Box")
+
 
 ### 5. Other users can create comments on reviews created by the user. The user can also comment on other users as well. The user that creates the comment can edit and delete the specific comment that they created. This allows for a fully interactive UI experience for our gaming community!
+![Game Comments Dropdown](/public/assets/comments.png "Game Comments Dropdown")
 
 ###
 
 ***
-## Technologies Used
+## Technologies Used and API
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
@@ -50,7 +57,11 @@ The Great Lakes Gamers
 
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
+![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)
+
+API:  https://rawg.io/apidocs
 
 ***
 
