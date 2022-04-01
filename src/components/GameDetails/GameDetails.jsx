@@ -35,6 +35,11 @@ const GameDetails = props => {
 
   const handleAddReview = async newFormData => {
     const newReview = await reviewService.create(newFormData);
+    const author = {
+      _id: props.user.profile,
+      name: props.user.name,
+    };
+    newReview.author = author;
     setReviews([...reviews, newReview]);
   };
 
