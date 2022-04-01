@@ -2,6 +2,7 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import "./ReviewList.css";
 
 function ReviewList({
+  user,
   reviews,
   handleDeleteReview,
   handleEditReview,
@@ -17,12 +18,11 @@ function ReviewList({
           handleEditReview={handleEditReview}
           handleDeleteReview={handleDeleteReview}
           handleAddComment={handleAddComment}
+          user={user}
         />
       ))}
     </div>
   );
 }
-
-
 
 export default ReviewList;

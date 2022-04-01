@@ -17,10 +17,16 @@ const ReviewCard = props => {
         <>
           <section className="ui">
             <h5>{props.review.author?.name}</h5>
-            <button onClick={() => setToggle(!toggle)}>Edit</button>
-            <button onClick={() => props.handleDeleteReview(props.review._id)}>
-              Delete
-            </button>
+            {props.user.profile === props.review.author._id && (
+              <>
+                <button onClick={() => setToggle(!toggle)}>Edit</button>
+                <button
+                  onClick={() => props.handleDeleteReview(props.review._id)}
+                >
+                  Delete
+                </button>
+              </>
+            )}
           </section>
         </>
         {toggle ? (
