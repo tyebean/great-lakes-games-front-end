@@ -67,6 +67,8 @@ const GameDetails = props => {
     // setReviews({...reviews, [id.review.text]: id.review.value})
   };
 
+
+
   return (
     <div className="all-content">
       {gameDetails ? (
@@ -82,8 +84,8 @@ const GameDetails = props => {
           src={gameDetails.background_image} 
           alt={gameDetails.name} 
           />
-          <h3>Game Description</h3>
-          <p>{gameDetails.description_raw}</p>
+          <h3 className={styles.desc}>Game Description</h3>
+          <p className={styles.desc}>{gameDetails.description_raw}</p>
           </div>
 
 
