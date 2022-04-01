@@ -77,7 +77,8 @@ const GameDetails = props => {
 
           <div className={styles.imgAndDesc}>
 
-          <img 
+          <img
+          className={styles.detailsImg} 
           src={gameDetails.background_image} 
           alt={gameDetails.name} 
           />
