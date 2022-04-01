@@ -44,7 +44,7 @@
 
 [Trello Planning](https://trello.com/b/LNa8QWuu/great-lake-gaming)
 
-[Wireframing](https://whimsical.com/city-slicker-football-app-wireframe-unit-2-YQ5V5Mbpmyggp1z3RDRjug)
+[Wireframing](https://whimsical.com/great-lake-gaming-wireframe-WkSLCdR2cWLcebdsFLe6X)
 
 ![ERD!](/wire-images/wire-framing-unit-two.png "ERD")
 
