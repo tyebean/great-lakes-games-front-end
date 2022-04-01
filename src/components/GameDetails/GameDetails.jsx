@@ -70,36 +70,61 @@ const GameDetails = props => {
   return (
     <div className="all-content">
       {gameDetails ? (
-        <div className="game-card">
-          <h3>{gameDetails.name}</h3>
-          <img src={gameDetails.background_image} alt={gameDetails.name} />
-          <h3>Game Description: {gameDetails.description_raw}</h3>
-          <h3>Release Date: {gameDetails.released}</h3>
-          <h3>
-            Genres:{" "}
+        <div className={styles.pageBody}>
+          <h1>{gameDetails.name}</h1>
+
+
+
+          <div className={styles.imgAndDesc}>
+
+          <img 
+          src={gameDetails.background_image} 
+          alt={gameDetails.name} 
+          />
+          <h3>Game Description</h3>
+          <p>{gameDetails.description_raw}</p>
+          </div>
+
+
+
+          <div className={styles.detailsContainer}>
+
+          <h2>Release Date</h2>
+          <p>{gameDetails.released}</p>
+          <h2>Genres</h2>
+          <p>
+            {" "}
             {gameDetails.genres.map((genre, index) => (
               <div key={index} state={{ genre }}>
                 {genre.name}
               </div>
             ))}
-          </h3>
-          <h3>
-            Developers:{" "}
+          </p>
+          <h2>Developers</h2>
+          <p>
+            {" "}
             {gameDetails.developers.map((developer, index) => (
               <div key={index} state={{ developer }}>
                 {developer.name}
               </div>
             ))}
-          </h3>
-          <h3>
-            Platforms:{" "}
+          </p>
+          <h2>Platforms</h2>
+          <p>
+            {" "}
             {gameDetails.platforms.map((platform, index) => (
               <div key={index} state={{ platform }}>
                 {platform.platform.name}
               </div>
             ))}
-          </h3>
-          <h3>Metacritic Rating: {gameDetails.metacritic}</h3>
+          </p>
+          <h2>Metacritic Rating </h2>
+          <p>{gameDetails.metacritic}</p>
+          </div>
+
+
+          <div className={styles.reviewContainer}>
+          
           <ReviewForm
             user={props.user}
             handleAddReview={handleAddReview}
@@ -112,7 +137,10 @@ const GameDetails = props => {
             handleAddComment={handleAddComment}
             user={props.user}
           />
+          </div>
+
           <Link to="/games">Return to Game Page</Link>
+          
         </div>
       ) : (
         <p>loading</p>
