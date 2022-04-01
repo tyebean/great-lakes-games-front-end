@@ -34,7 +34,7 @@ Sincerely,
 
 
 ### 5. Other users can create comments on reviews created by the user. The user can also comment on other users as well. The user that creates the comment can edit and delete the specific comment that they created. This allows for a fully interactive UI experience for our gaming community!
-![Game Comments Dropdown](/public/assets/comments.png "Game Comments Dropdown")
+![Game Comments Dropdown](/public/assets/comment-dropdown.png "Game Comments Dropdown")
 
 ###
 
