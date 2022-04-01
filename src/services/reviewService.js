@@ -5,8 +5,8 @@ function create(review) {
   return fetch(BASE_URL, {
     method: "POST",
     headers: {
-      'content-type': 'application/json',
-      'Authorization': `Bearer ${tokenService.getToken()}`
+      "content-type": "application/json",
+      Authorization: `Bearer ${tokenService.getToken()}`,
     },
     body: JSON.stringify(review),
   }).then(res => res.json());
@@ -30,7 +30,7 @@ function createComment(comment, id) {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      Authentication: `Bearer ${tokenService.getToken()}`,
+      Authorization: `Bearer ${tokenService.getToken()}`,
     },
     body: JSON.stringify(comment),
   }).then(res => res.json());
@@ -45,16 +45,14 @@ async function getComments(id) {
   return await res.json();
 }
 
-
-  function deleteOne(id) {
-    console.log("deleteOne review Service function");
-    return fetch(`${BASE_URL}/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${tokenService.getToken()}`,
-      },
-    }).then(res => res.json);
-  }
-
+function deleteOne(id) {
+  console.log("deleteOne review Service function");
+  return fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${tokenService.getToken()}`,
+    },
+  }).then(res => res.json);
+}
 
 export { create, createComment, getComments, update, deleteOne };
