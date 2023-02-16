@@ -15,7 +15,7 @@ const GameDetails = props => {
   // Make a new state for our game in our DB (GameCopy)
   const [gameCopy, setGameCopy] = useState();
 
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
   let location = useLocation();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const GameDetails = props => {
     );
   }, [location.state.gameDetails.id]);
 
-  // console.log(gameCopy);
+  console.log(gameCopy);
 
   useEffect(() => {
     gameServices.getGame(location.state.gameDetails.id).then(game => {
@@ -129,7 +129,6 @@ const GameDetails = props => {
           <h2>Metacritic Rating </h2>
           <p>{gameDetails.metacritic}</p>
           </div>
-
 
           <div className={styles.reviewContainer}>
           
