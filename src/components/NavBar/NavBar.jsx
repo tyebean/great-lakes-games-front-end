@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
-import { Nav, Button, Form, FormControl, Container, NavDropdown } from 'react-bootstrap';
+import { Nav, Container } from 'react-bootstrap';
 
 const NavBar = ({ user, handleLogout }) => {
 
@@ -14,7 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
               <Navbar.Brand href="/">
             <img 
             src="/assets/mystery_block.png" 
-            width="30" 
+            width="30"
             height="30"
             className="d-inline-block align-top" 
             alt="a question block icon from mario">
