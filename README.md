@@ -1,6 +1,6 @@
 # Great Lakes Games
 
-[The Deployed Site](https://great-lakes-games.herokuapp.com/)
+[The Deployed Site](https://greatlakesgames.netlify.app/)
 
 [The Back-End](https://github.com/tyebean/great-lakes-games-back-end)
 
