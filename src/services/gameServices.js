@@ -2,7 +2,7 @@ import * as tokenService from "./tokenService";
 const BASE_URL = `${process.env.BACKEND_URL}/api/games`;
 
 console.log("hello", process.env.BACKEND_URL, BASE_URL);
-heroku render:import --app
+
 async function getGameList() {
   const res = await fetch(`${BASE_URL}/browse?dates=1969-09-01,2007-09-30`);
   return await res.json();
