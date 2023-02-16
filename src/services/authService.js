@@ -24,7 +24,7 @@ async function signup(user) {
 
 function getUser() {
   return tokenService.getUserFromToken();
-  console.log("RUNNING");
+  // console.log("RUNNING");
 }
 
 function logout() {
